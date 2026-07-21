@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURA Multi-Market | Premium Water, Camera, Clothing & Gift Gallery</title>
+  <meta name="description" content="One-stop luxury destination for Premium Water Solutions, Cutting-Edge Cameras, Urban Clothing, and Bespoke Gift Collections with secure multi-channel payment gateway.">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-sector="all">
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="announcement-content">
+      <span>🎉 <strong>SPECIAL LAUNCH OFFER:</strong> Use code <code class="code-badge">SAVE10</code> for 10% OFF across all 4 sectors! Free express shipping on orders over $50.</span>
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="main-header" id="mainHeader">
+    <div class="header-container">
+      <a href="#" class="brand-logo" id="brandLogo">
+        <div class="logo-icon">
+          <i class="fa-solid fa-gem"></i>
+        </div>
+        <div class="logo-text">
+          <span class="logo-name">AURA</span>
+          <span class="logo-sub">MULTI-MARKET</span>
+        </div>
+      </a>
+
+      <!-- Sector Navigation Bar -->
+      <nav class="sector-nav" aria-label="Sector Categories">
+        <button class="sector-tab active" data-sector="all">
+          <i class="fa-solid fa-layer-group"></i> All Sectors
+        </button>
+        <button class="sector-tab" data-sector="water">
+          <i class="fa-solid fa-droplet"></i> Water
+        </button>
+        <button class="sector-tab" data-sector="camera">
+          <i class="fa-solid fa-camera"></i> Camera
+        </button>
+        <button class="sector-tab" data-sector="clothing">
+          <i class="fa-solid fa-shirt"></i> Clothing
+        </button>
+        <button class="sector-tab" data-sector="gifts">
+          <i class="fa-solid fa-gift"></i> Gift Gallery
+        </button>
+      </nav>
+
+      <!-- Action Utilities -->
+      <div class="header-actions">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="searchInput" placeholder="Search Water, Cameras, Fashion, Gifts..." aria-label="Search products">
+          <button class="clear-search-btn hidden" id="clearSearchBtn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <button class="action-btn" id="wishlistBtn" title="Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge" id="wishlistBadge">0</span>
+        </button>
+
+        <button class="action-btn" id="ordersBtn" title="My Orders">
+          <i class="fa-solid fa-box-archive"></i>
+        </button>
+
+        <button class="action-btn cart-btn-primary" id="cartBtn" title="Shopping Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-btn-label">Cart</span>
+          <span class="badge cart-badge-highlight" id="cartBadge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dynamic Hero Banner Section -->
+  <section class="hero-section" id="heroSection">
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="sector-tag" id="heroTag">
+          <i class="fa-solid fa-sparkles"></i> QUAD-SECTOR ENTERPRISE
+        </div>
+        <h1 class="hero-title" id="heroTitle">
+          Discover Premium Excellence Across <span class="gradient-text">4 Essential Sectors</span>
+        </h1>
+        <p class="hero-description" id="heroDesc">
+          Pure hydration solutions, professional photography gear, urban high fashion, and unforgettable artisan gifts — all backed by instant secure checkout.
+        </p>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-num">4</span>
+            <span class="stat-lbl">Core Sectors</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-num">100%</span>
+            <span class="stat-lbl">Quality Assured</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-num">Instant</span>
+            <span class="stat-lbl">Secure Checkout</span>
+          </div>
+        </div>
+
+        <div class="hero-cta-group">
+          <button class="btn btn-primary" id="exploreSectorBtn">
+            Explore All Products <i class="fa-solid fa-arrow-right"></i>
+          </button>
+          <button class="btn btn-secondary" id="paymentInfoBtn">
+            <i class="fa-solid fa-shield-halved"></i> Payment Methods
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card-stack" id="heroCardStack">
+          <div class="hero-mini-card card-water active" data-sector="water">
+            <div class="mini-icon"><i class="fa-solid fa-droplet"></i></div>
+            <div class="mini-info">
+              <h4>Water Sector</h4>
+              <p>Alkaline, Mineral & Smart Purifiers</p>
+            </div>
+          </div>
+          <div class="hero-mini-card card-camera" data-sector="camera">
+            <div class="mini-icon"><i class="fa-solid fa-camera"></i></div>
+            <div class="mini-info">
+              <h4>Camera Sector</h4>
+              <p>4K Optics, DSLRs & Security Systems</p>
+            </div>
+          </div>
+          <div class="hero-mini-card card-clothing" data-sector="clothing">
+            <div class="mini-icon"><i class="fa-solid fa-shirt"></i></div>
+            <div class="mini-info">
+              <h4>Clothing Sector</h4>
+              <p>Urban Apparel & Activewear</p>
+            </div>
+          </div>
+          <div class="hero-mini-card card-gifts" data-sector="gifts">
+            <div class="mini-icon"><i class="fa-solid fa-gift"></i></div>
+            <div class="mini-info">
+              <h4>Gift Gallery</h4>
+              <p>Artisan Keepsakes & Custom Sets</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Product Section -->
+  <main class="main-content">
+    <div class="content-container">
+      
+      <!-- Filter & Controls Toolbar -->
+      <div class="catalog-toolbar">
+        <div class="toolbar-left">
+          <h2 class="section-title" id="catalogTitle">All Catalog Items</h2>
+          <span class="count-badge" id="productCountBadge">Showing products</span>
+        </div>
+
+        <div class="toolbar-right">
+          <!-- Sub Category Pills -->
+          <div class="sub-category-pills" id="subCategoryPills">
+            <button class="pill-btn active" data-sub="all">All Items</button>
+          </div>
+
+          <div class="sort-wrapper">
+            <label for="sortSelect" class="sort-label"><i class="fa-solid fa-arrow-down-short-wide"></i> Sort:</label>
+            <select id="sortSelect" class="sort-select">
+              <option value="featured">Featured</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="rating">Highest Rated</option>
+              <option value="name">Name (A-Z)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Filter Tags Display -->
+      <div class="active-filters-bar hidden" id="activeFiltersBar">
+        <span class="filter-tag-label">Active Filters:</span>
+        <div class="filter-tags-container" id="filterTagsContainer"></div>
+        <button class="btn-text" id="resetFiltersBtn"><i class="fa-solid fa-rotate-left"></i> Reset All</button>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Dynamically rendered by JS -->
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-products hidden" id="emptyState">
+        <div class="empty-icon"><i class="fa-solid fa-magnifying-glass-minus"></i></div>
+        <h3>No products found matching your search</h3>
+        <p>Try clearing filters or search for another sector like Water, Camera, Clothing, or Gifts.</p>
+        <button class="btn btn-primary" id="emptyResetBtn">Reset Search & Filters</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <div class="footer-col brand-col">
+        <div class="brand-logo">
+          <div class="logo-icon"><i class="fa-solid fa-gem"></i></div>
+          <div class="logo-text">
+            <span class="logo-name">AURA</span>
+            <span class="logo-sub">MULTI-MARKET</span>
+          </div>
+        </div>
+        <p class="footer-desc">
+          Delivering excellence across 4 core life sectors. High purity water systems, professional photography optics, premium urban apparel, and bespoke gift curations.
+        </p>
+        <div class="accepted-payment-badges">
+          <span><i class="fa-brands fa-cc-visa"></i> Visa</span>
+          <span><i class="fa-brands fa-cc-mastercard"></i> Mastercard</span>
+          <span><i class="fa-solid fa-mobile-screen"></i> UPI QR</span>
+          <span><i class="fa-solid fa-building-columns"></i> Net Banking</span>
+          <span><i class="fa-solid fa-hand-holding-dollar"></i> COD</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Our 4 Sectors</h4>
+        <ul>
+          <li><a href="#" data-footer-sector="water"><i class="fa-solid fa-droplet"></i> Water & Hydration</a></li>
+          <li><a href="#" data-footer-sector="camera"><i class="fa-solid fa-camera"></i> Cameras & Imaging</a></li>
+          <li><a href="#" data-footer-sector="clothing"><i class="fa-solid fa-shirt"></i> Apparel & Fashion</a></li>
+          <li><a href="#" data-footer-sector="gifts"><i class="fa-solid fa-gift"></i> Gift Gallery</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Customer Care</h4>
+        <ul>
+          <li><a href="#" id="footerTrackOrder"><i class="fa-solid fa-truck"></i> Order Tracking</a></li>
+          <li><a href="#" id="footerPaymentSecurity"><i class="fa-solid fa-lock"></i> Payment Security</a></li>
+          <li><a href="#" id="footerReturns"><i class="fa-solid fa-rotate-left"></i> Easy 30-Day Returns</a></li>
+          <li><a href="#" id="footerFAQ"><i class="fa-solid fa-circle-question"></i> Help & FAQs</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col newsletter-col">
+        <h4>Stay Updated</h4>
+        <p>Subscribe for exclusive launches & promo codes across all 4 sectors.</p>
+        <form class="newsletter-form" id="newsletterForm" onsubmit="event.preventDefault(); alert('Thank you for subscribing to AURA Multi-Market newsletter!');">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 AURA Multi-Market Inc. All rights reserved. Secure SSL Encrypted Gateway.</p>
+    </div>
+  </footer>
+
+  <!-- Slide-out Shopping Cart Drawer -->
+  <div class="drawer-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="drawer-title">
+        <i class="fa-solid fa-bag-shopping"></i> Your Shopping Bag
+        <span class="count-badge" id="cartDrawerCount">0 Items</span>
+      </div>
+      <button class="close-drawer-btn" id="closeCartBtn" aria-label="Close Cart"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <div class="drawer-body">
+      <!-- Free Shipping Progress -->
+      <div class="shipping-progress-box" id="shippingProgressBox">
+        <div class="progress-text" id="shippingProgressText">Add $50.00 more for FREE Express Delivery!</div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="shippingProgressBar" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <!-- Cart Items Container -->
+      <div class="cart-items-list" id="cartItemsList">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- Empty Cart Message -->
+      <div class="empty-cart-state hidden" id="emptyCartState">
+        <div class="empty-cart-icon"><i class="fa-solid fa-cart-flatbed"></i></div>
+        <h4>Your cart is empty</h4>
+        <p>Explore our 4 sectors to add premium Water, Camera, Clothing or Gift products!</p>
+        <button class="btn btn-secondary" id="cartStartShoppingBtn">Start Shopping</button>
+      </div>
+    </div>
+
+    <div class="drawer-footer" id="cartDrawerFooter">
+      <!-- Promo Code Accordion -->
+      <div class="promo-box">
+        <div class="promo-input-group">
+          <input type="text" id="couponInput" placeholder="Promo code (e.g. SAVE10)" uppercase>
+          <button type="button" class="btn btn-small btn-secondary" id="applyCouponBtn">Apply</button>
+        </div>
+        <div class="coupon-msg hidden" id="couponMsg"></div>
+      </div>
+
+      <!-- Summary Lines -->
+      <div class="cart-summary-totals">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">$0.00</span>
+        </div>
+        <div class="summary-row discount-row hidden" id="discountRow">
+          <span>Promo Discount (<span id="appliedCouponCode"></span>)</span>
+          <span class="discount-val" id="cartDiscount">-$0.00</span>
+        </div>
+        <div class="summary-row">
+          <span>Estimated Tax (8%)</span>
+          <span id="cartTax">$0.00</span>
+        </div>
+        <div class="summary-row">
+          <span>Shipping Fee</span>
+          <span id="cartShipping">$0.00</span>
+        </div>
+        <div class="summary-row total-row">
+          <span>Grand Total</span>
+          <span class="total-amount" id="cartGrandTotal">$0.00</span>
+        </div>
+      </div>
+
+      <button class="btn btn-primary btn-block checkout-btn" id="proceedToCheckoutBtn">
+        Proceed to Checkout Gateway <i class="fa-solid fa-lock"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Product Details Quick-View Modal -->
+  <div class="modal-overlay" id="productModalOverlay">
+    <div class="modal-content product-modal-content">
+      <button class="modal-close-btn" id="closeProductModalBtn"><i class="fa-solid fa-xmark"></i></button>
+      <div class="product-modal-grid" id="productModalBody">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Multi-Method Payment Gateway & Checkout Modal -->
+  <div class="modal-overlay" id="checkoutModalOverlay">
+    <div class="modal-content checkout-modal-content">
+      <div class="checkout-header">
+        <div class="checkout-brand">
+          <i class="fa-solid fa-shield-halved checkout-shield"></i>
+          <div>
+            <h3>AURA Secure Checkout Gateway</h3>
+            <p><i class="fa-solid fa-lock"></i> 256-Bit SSL Encrypted Payment Portal</p>
+          </div>
+        </div>
+        <button class="modal-close-btn" id="closeCheckoutModalBtn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <!-- Checkout Step Tracker -->
+      <div class="checkout-steps">
+        <div class="step-item active" id="stepIndicator1">
+          <span class="step-num">1</span>
+          <span class="step-label">Shipping Details</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item" id="stepIndicator2">
+          <span class="step-num">2</span>
+          <span class="step-label">Payment Method</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item" id="stepIndicator3">
+          <span class="step-num">3</span>
+          <span class="step-label">Verification</span>
+        </div>
+      </div>
+
+      <!-- Step 1: Shipping Details Form -->
+      <div class="checkout-step-body" id="checkoutStep1">
+        <div class="checkout-grid">
+          <form class="shipping-form" id="shippingForm">
+            <h4 class="form-section-title"><i class="fa-solid fa-truck-ramp-box"></i> Delivery Address</h4>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="shipFullName">Full Name *</label>
+                <input type="text" id="shipFullName" required placeholder="John Doe">
+              </div>
+              <div class="form-group">
+                <label for="shipEmail">Email Address *</label>
+                <input type="email" id="shipEmail" required placeholder="john@example.com">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="shipPhone">Phone Number *</label>
+                <input type="tel" id="shipPhone" required placeholder="+1 (555) 000-0000">
+              </div>
+              <div class="form-group">
+                <label for="shipPincode">Zip/Postal Code *</label>
+                <input type="text" id="shipPincode" required placeholder="10001">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="shipAddress">Street Address *</label>
+              <input type="text" id="shipAddress" required placeholder="123 Luxury Boulevard, Suite 400">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="shipCity">City *</label>
+                <input type="text" id="shipCity" required placeholder="New York">
+              </div>
+              <div class="form-group">
+                <label for="shipState">State/Province *</label>
+                <input type="text" id="shipState" required placeholder="NY">
+              </div>
+            </div>
+
+            <button type="button" class="btn btn-primary btn-block" id="goToStep2Btn">
+              Continue to Payment Method <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </form>
+
+          <!-- Order Summary Sidebar -->
+          <div class="checkout-order-summary">
+            <h4>Order Summary</h4>
+            <div class="checkout-items-preview" id="checkoutItemsPreview">
+              <!-- Rendered by JS -->
+            </div>
+            <div class="checkout-cost-breakdown">
+              <div class="row"><span>Subtotal:</span> <span id="coSubtotal">$0.00</span></div>
+              <div class="row" id="coDiscountRow"><span>Discount:</span> <span id="coDiscount">-$0.00</span></div>
+              <div class="row"><span>Tax (8%):</span> <span id="coTax">$0.00</span></div>
+              <div class="row"><span>Shipping:</span> <span id="coShipping">$0.00</span></div>
+              <hr>
+              <div class="row total"><span>Total Payable:</span> <span id="coGrandTotal">$0.00</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Payment Gateway Selector -->
+      <div class="checkout-step-body hidden" id="checkoutStep2">
+        <div class="payment-tabs-container">
+          <div class="payment-methods-sidebar">
+            <button class="pay-method-tab active" data-method="upi">
+              <i class="fa-solid fa-mobile-screen-button"></i>
+              <div>
+                <strong>UPI / QR Code</strong>
+                <small>GPay, PhonePe, Paytm</small>
+              </div>
+            </button>
+
+            <button class="pay-method-tab" data-method="card">
+              <i class="fa-solid fa-credit-card"></i>
+              <div>
+                <strong>Credit / Debit Card</strong>
+                <small>Visa, Mastercard, Amex</small>
+              </div>
+            </button>
+
+            <button class="pay-method-tab" data-method="netbanking">
+              <i class="fa-solid fa-building-columns"></i>
+              <div>
+                <strong>Net Banking</strong>
+                <small>All Indian & Global Banks</small>
+              </div>
+            </button>
+
+            <button class="pay-method-tab" data-method="cod">
+              <i class="fa-solid fa-money-bill-wave"></i>
+              <div>
+                <strong>Cash on Delivery</strong>
+                <small>Pay upon arrival</small>
+              </div>
+            </button>
+          </div>
+
+          <!-- Payment Panels -->
+          <div class="payment-panel-content">
+            
+            <!-- Panel: UPI Payment -->
+            <div class="payment-panel active" id="panelUpi">
+              <h4><i class="fa-solid fa-qrcode"></i> Instant Scan & Pay via UPI</h4>
+              <p>Scan the dynamic QR code with any UPI app (Google Pay, PhonePe, Paytm, BHIM) to complete your transaction.</p>
+              
+              <div class="upi-qr-display">
+                <div class="qr-box">
+                  <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=upi://pay?pa=auramarket@expressbank&pn=AURA%20Multi-Market&am=149.99&cu=USD" alt="UPI QR Code" id="upiQrImg">
+                  <div class="qr-center-icon"><i class="fa-solid fa-bolt"></i></div>
+                </div>
+                <div class="qr-details">
+                  <div class="vpa-badge">VPA: <code>auramarket@expressbank</code></div>
+                  <div class="amount-badge">Amount: <strong id="upiAmountText">$0.00</strong></div>
+                  <div class="timer-box"><i class="fa-regular fa-clock"></i> QR valid for <span id="qrTimer">04:59</span> mins</div>
+                </div>
+              </div>
+
+              <div class="upi-apps-row">
+                <div class="upi-app-badge"><i class="fa-brands fa-google-pay"></i> GPay</div>
+                <div class="upi-app-badge"><i class="fa-solid fa-wallet"></i> PhonePe</div>
+                <div class="upi-app-badge"><i class="fa-solid fa-money-bill"></i> Paytm</div>
+                <div class="upi-app-badge"><i class="fa-solid fa-shield"></i> BHIM</div>
+              </div>
+
+              <button class="btn btn-primary btn-block" id="simulateUpiApproveBtn">
+                <i class="fa-solid fa-circle-check"></i> Simulate UPI Mobile App Approval
+              </button>
+            </div>
+
+            <!-- Panel: Credit / Debit Card -->
+            <div class="payment-panel hidden" id="panelCard">
+              <h4><i class="fa-solid fa-credit-card"></i> Credit / Debit Card Payment</h4>
+              
+              <form id="cardPaymentForm">
+                <div class="form-group">
+                  <label for="cardNumber">Card Number *</label>
+                  <div class="input-with-icon">
+                    <i class="fa-solid fa-credit-card input-icon"></i>
+                    <input type="text" id="cardNumber" placeholder="4532 1111 2222 3333" maxlength="19" required>
+                    <span class="card-brand-icon" id="cardBrandIcon"><i class="fa-brands fa-cc-visa"></i></span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="cardHolder">Cardholder Name *</label>
+                  <input type="text" id="cardHolder" placeholder="JOHN DOE" required uppercase>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="cardExpiry">Expiry Date (MM/YY) *</label>
+                    <input type="text" id="cardExpiry" placeholder="12/28" maxlength="5" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="cardCvv">CVV / CVC *</label>
+                    <input type="password" id="cardCvv" placeholder="•••" maxlength="4" required>
+                  </div>
+                </div>
+
+                <div class="secure-badge-box">
+                  <i class="fa-solid fa-shield-cat"></i> Protected by 3D Secure 2.0 Card Authentication
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block" id="submitCardBtn">
+                  Pay Now (<span class="pay-btn-amount">$0.00</span>) <i class="fa-solid fa-lock"></i>
+                </button>
+              </form>
+            </div>
+
+            <!-- Panel: Net Banking -->
+            <div class="payment-panel hidden" id="panelNetbanking">
+              <h4><i class="fa-solid fa-building-columns"></i> Net Banking</h4>
+              <p>Select your bank to proceed to secure internet banking portal:</p>
+              
+              <div class="banks-grid">
+                <label class="bank-card">
+                  <input type="radio" name="bankSelect" value="HDFC Bank" checked>
+                  <div class="bank-info"><i class="fa-solid fa-landmark"></i> <span>HDFC Bank</span></div>
+                </label>
+                <label class="bank-card">
+                  <input type="radio" name="bankSelect" value="State Bank of India">
+                  <div class="bank-info"><i class="fa-solid fa-landmark-dome"></i> <span>State Bank (SBI)</span></div>
+                </label>
+                <label class="bank-card">
+                  <input type="radio" name="bankSelect" value="ICICI Bank">
+                  <div class="bank-info"><i class="fa-solid fa-building"></i> <span>ICICI Bank</span></div>
+                </label>
+                <label class="bank-card">
+                  <input type="radio" name="bankSelect" value="Axis Bank">
+                  <div class="bank-info"><i class="fa-solid fa-vault"></i> <span>Axis Bank</span></div>
+                </label>
+              </div>
+
+              <div class="form-group mt-3">
+                <label for="otherBankSelect">Or Select Other Bank</label>
+                <select id="otherBankSelect" class="sort-select">
+                  <option value="">-- Choose Bank --</option>
+                  <option value="Kotak Mahindra Bank">Kotak Mahindra Bank</option>
+                  <option value="Citibank">Citibank</option>
+                  <option value="Standard Chartered">Standard Chartered</option>
+                  <option value="Bank of Baroda">Bank of Baroda</option>
+                </select>
+              </div>
+
+              <button class="btn btn-primary btn-block mt-4" id="submitNetbankingBtn">
+                Proceed to Bank Login <i class="fa-solid fa-arrow-right-to-bracket"></i>
+              </button>
+            </div>
+
+            <!-- Panel: Cash on Delivery -->
+            <div class="payment-panel hidden" id="panelCod">
+              <h4><i class="fa-solid fa-hand-holding-dollar"></i> Cash / Pay on Delivery</h4>
+              <p>Pay with cash or card upon package delivery to your doorstep.</p>
+              
+              <div class="cod-info-box">
+                <div class="cod-icon"><i class="fa-solid fa-box-open"></i></div>
+                <div>
+                  <strong>Order Verification required</strong>
+                  <p>A verification code will be sent to your mobile number upon placing this order.</p>
+                </div>
+              </div>
+
+              <button class="btn btn-primary btn-block mt-4" id="submitCodBtn">
+                Confirm Order with Cash on Delivery <i class="fa-solid fa-circle-check"></i>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="checkout-footer-buttons">
+          <button type="button" class="btn btn-secondary" id="backToStep1Btn">
+            <i class="fa-solid fa-arrow-left"></i> Back to Shipping Form
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 3: Payment Processing & OTP Simulator Overlay -->
+      <div class="checkout-step-body hidden" id="checkoutStep3">
+        <div class="processing-state" id="processingSpinnerBox">
+          <div class="spinner-ring"></div>
+          <h3 id="processingStatusTitle">Authenticating Payment Gateway...</h3>
+          <p id="processingStatusDesc">Connecting with bank servers using 256-bit SSL encryption. Please do not close or refresh this page.</p>
+        </div>
+
+        <!-- Simulated Card 3D-Secure OTP Dialog -->
+        <div class="otp-dialog-box hidden" id="otpDialogBox">
+          <div class="otp-header">
+            <i class="fa-solid fa-shield-halved text-success"></i>
+            <div>
+              <h4>3D-Secure One-Time Password</h4>
+              <small>Sent to registered phone ending in •••• 8892</small>
+            </div>
+          </div>
+
+          <div class="otp-body">
+            <p>For testing, enter default OTP: <code class="code-badge">123456</code></p>
+            <div class="otp-input-group">
+              <input type="text" id="otpInput" placeholder="Enter 6-digit OTP" maxlength="6" autofocus>
+              <button class="btn btn-primary" id="submitOtpBtn">Verify OTP</button>
+            </div>
+            <div class="otp-timer">Resend OTP in <span id="otpTimerText">30</span> seconds</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Order Receipt / Confirmation Modal -->
+  <div class="modal-overlay" id="receiptModalOverlay">
+    <div class="modal-content receipt-modal-content">
+      <div class="receipt-header">
+        <div class="success-icon-badge"><i class="fa-solid fa-circle-check"></i></div>
+        <h2>Payment Successful!</h2>
+        <p>Thank you for your order with AURA Multi-Market.</p>
+        <div class="order-id-tag">Order Reference: <strong id="receiptOrderId">#ORD-982412</strong></div>
+      </div>
+
+      <div class="receipt-body" id="receiptPrintArea">
+        <div class="receipt-meta-grid">
+          <div class="meta-card">
+            <span class="lbl">Date & Time</span>
+            <strong id="receiptDate">2026-07-21 14:56</strong>
+          </div>
+          <div class="meta-card">
+            <span class="lbl">Payment Method</span>
+            <strong id="receiptMethod">UPI (Verified)</strong>
+          </div>
+          <div class="meta-card">
+            <span class="lbl">Shipping Address</span>
+            <strong id="receiptAddress">John Doe, NY 10001</strong>
+          </div>
+          <div class="meta-card">
+            <span class="lbl">Status</span>
+            <span class="status-pill status-paid"><i class="fa-solid fa-check"></i> Payment Confirmed</span>
+          </div>
+        </div>
+
+        <!-- Timeline Tracker -->
+        <div class="order-timeline">
+          <div class="timeline-step completed">
+            <div class="step-dot"><i class="fa-solid fa-check"></i></div>
+            <span>Order Placed</span>
+          </div>
+          <div class="timeline-step active">
+            <div class="step-dot"><i class="fa-solid fa-gears"></i></div>
+            <span>Processing</span>
+          </div>
+          <div class="timeline-step">
+            <div class="step-dot"><i class="fa-solid fa-truck"></i></div>
+            <span>Dispatched</span>
+          </div>
+          <div class="timeline-step">
+            <div class="step-dot"><i class="fa-solid fa-house"></i></div>
+            <span>Delivered</span>
+          </div>
+        </div>
+
+        <h4 class="receipt-table-title">Purchased Items Across Sectors</h4>
+        <div class="receipt-items-table" id="receiptItemsTable">
+          <!-- Rendered by JS -->
+        </div>
+
+        <div class="receipt-totals">
+          <div class="row"><span>Subtotal:</span> <span id="rcSubtotal">$0.00</span></div>
+          <div class="row" id="rcDiscountRow"><span>Discount Applied:</span> <span id="rcDiscount">-$0.00</span></div>
+          <div class="row"><span>Tax (8%):</span> <span id="rcTax">$0.00</span></div>
+          <div class="row"><span>Shipping:</span> <span id="rcShipping">FREE</span></div>
+          <div class="row grand-total"><span>Total Paid:</span> <span id="rcGrandTotal">$0.00</span></div>
+        </div>
+      </div>
+
+      <div class="receipt-actions">
+        <button class="btn btn-secondary" id="printReceiptBtn">
+          <i class="fa-solid fa-print"></i> Print Invoice / Receipt
+        </button>
+        <button class="btn btn-primary" id="continueShoppingBtn">
+          Continue Shopping <i class="fa-solid fa-bag-shopping"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order History Modal -->
+  <div class="modal-overlay" id="ordersModalOverlay">
+    <div class="modal-content orders-modal-content">
+      <div class="drawer-header">
+        <div class="drawer-title"><i class="fa-solid fa-box-archive"></i> Order History</div>
+        <button class="modal-close-btn" id="closeOrdersModalBtn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="orders-list-body" id="ordersListBody">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification System -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/payment.js"></script>
+</body>
+</html>

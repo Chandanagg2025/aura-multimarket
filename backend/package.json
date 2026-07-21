@@ -1,0 +1,15 @@
+{
+  "name": "aura-market-backend",
+  "version": "1.0.0",
+  "description": "Full-Stack Express API and SQLite Database for AURA Multi-Market E-Commerce",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node seed.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "sqlite3": "^5.1.6"
+  }
+}
