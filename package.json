@@ -1,0 +1,10 @@
+{
+  "name": "aura-multimarket",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-Stack React, Express, and SQLite Multi-Sector E-Commerce Platform",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "start": "node backend/server.js"
+  }
+}
