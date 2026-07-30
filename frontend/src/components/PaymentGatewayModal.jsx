@@ -34,8 +34,8 @@ export default function PaymentGatewayModal() {
     discount = (subtotal * appliedCoupon.value) / 100;
   }
   const tax = subtotal * 0.08;
-  const isFreeShip = subtotal >= 50 || (appliedCoupon && appliedCoupon.type === 'shipping');
-  const shipping = isFreeShip || subtotal === 0 ? 0 : 15.00;
+  const isFreeShip = subtotal >= 1000 || (appliedCoupon && appliedCoupon.type === 'shipping');
+  const shipping = isFreeShip || subtotal === 0 ? 0 : 100.00;
   const total = Math.max(0, subtotal - discount + tax + shipping);
 
   const handleShippingChange = (e) => {
@@ -122,7 +122,7 @@ export default function PaymentGatewayModal() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
             <i className="fa-solid fa-shield-halved text-success" style={{ fontSize: '2rem', color: '#10B981' }}></i>
             <div>
-              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem' }}>AURA Secure Checkout Gateway</h3>
+              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem' }}>Shree Pratham Secure Checkout Gateway</h3>
               <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}><i className="fa-solid fa-lock"></i> 256-Bit SSL Encrypted Node/Express + SQLite Portal</p>
             </div>
           </div>
@@ -162,11 +162,11 @@ export default function PaymentGatewayModal() {
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
                 <div className="form-group">
                   <label>Phone Number *</label>
-                  <input type="tel" name="phone" required value={shippingData.phone} onChange={handleShippingChange} placeholder="+1 (555) 000-0000" />
+                  <input type="tel" name="phone" required value={shippingData.phone} onChange={handleShippingChange} placeholder="+91 98765-43210" />
                 </div>
                 <div className="form-group">
                   <label>Zip/Postal Code *</label>
-                  <input type="text" name="pincode" required value={shippingData.pincode} onChange={handleShippingChange} placeholder="10001" />
+                  <input type="text" name="pincode" required value={shippingData.pincode} onChange={handleShippingChange} placeholder="400001" />
                 </div>
               </div>
 
@@ -178,11 +178,11 @@ export default function PaymentGatewayModal() {
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
                 <div className="form-group">
                   <label>City *</label>
-                  <input type="text" name="city" required value={shippingData.city} onChange={handleShippingChange} placeholder="New York" />
+                  <input type="text" name="city" required value={shippingData.city} onChange={handleShippingChange} placeholder="Mumbai" />
                 </div>
                 <div className="form-group">
                   <label>State/Province *</label>
-                  <input type="text" name="state" required value={shippingData.state} onChange={handleShippingChange} placeholder="NY" />
+                  <input type="text" name="state" required value={shippingData.state} onChange={handleShippingChange} placeholder="MH" />
                 </div>
               </div>
 
@@ -196,12 +196,12 @@ export default function PaymentGatewayModal() {
               {cart.map(item => (
                 <div key={item.id} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.84rem', marginBottom: '8px' }}>
                   <span>{item.quantity}x {item.name}</span>
-                  <strong>${(item.price * item.quantity).toFixed(2)}</strong>
+                  <strong>₹{(item.price * item.quantity).toLocaleString('en-IN')}</strong>
                 </div>
               ))}
               <hr style={{ borderColor: 'var(--border-color)', margin: '12px 0' }} />
               <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: '800', fontSize: '1.1rem', color: '#FFF' }}>
-                <span>Total Payable:</span><span style={{ color: 'var(--accent-primary)' }}>${total.toFixed(2)}</span>
+                <span>Total Payable:</span><span style={{ color: 'var(--accent-primary)' }}>₹{total.toLocaleString('en-IN')}</span>
               </div>
             </div>
           </div>
@@ -241,11 +241,11 @@ export default function PaymentGatewayModal() {
                     
                     <div style={{ display: 'flex', alignItems: 'center', gap: '20px', background: 'rgba(255,255,255,0.03)', padding: '16px', borderRadius: 'var(--radius-md)', marginBottom: '20px' }}>
                       <div style={{ background: '#FFF', padding: '8px', borderRadius: 'var(--radius-sm)' }}>
-                        <img src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(`upi://pay?pa=auramarket@expressbank&pn=AURA%20Multi-Market&am=${total.toFixed(2)}&cu=USD`)}`} alt="UPI QR" style={{ width: '130px', height: '130px' }} />
+                        <img src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(`upi://pay?pa=shreepratham@expressbank&pn=Shree%20Pratham%20Multi-Market&am=${total.toFixed(2)}&cu=INR`)}`} alt="UPI QR" style={{ width: '130px', height: '130px' }} />
                       </div>
                       <div>
-                        <div style={{ fontSize: '0.85rem', marginBottom: '6px' }}>VPA: <code className="code-badge">auramarket@expressbank</code></div>
-                        <div style={{ fontSize: '1.1rem', fontWeight: '800', color: '#FFF' }}>Amount: ${total.toFixed(2)}</div>
+                        <div style={{ fontSize: '0.85rem', marginBottom: '6px' }}>VPA: <code className="code-badge">shreepratham@expressbank</code></div>
+                        <div style={{ fontSize: '1.1rem', fontWeight: '800', color: '#FFF' }}>Amount: ₹{total.toLocaleString('en-IN')}</div>
                       </div>
                     </div>
 
@@ -281,7 +281,7 @@ export default function PaymentGatewayModal() {
                     </div>
 
                     <button type="submit" className="btn btn-primary btn-block" style={{ marginTop: '14px' }}>
-                      Pay ${total.toFixed(2)} <i className="fa-solid fa-lock"></i>
+                      Pay ₹{total.toLocaleString('en-IN')} <i className="fa-solid fa-lock"></i>
                     </button>
                   </form>
                 )}

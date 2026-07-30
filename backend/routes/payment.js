@@ -5,8 +5,8 @@ const db = require('../config/db');
 // POST /api/payment/generate-qr - Generate UPI QR details
 router.post('/payment/generate-qr', (req, res) => {
   const { amount } = req.body;
-  const upiId = "auramarket@expressbank";
-  const upiUrl = `upi://pay?pa=${upiId}&pn=AURA%20Multi-Market&am=${parseFloat(amount).toFixed(2)}&cu=USD`;
+  const upiId = "shreepratham@expressbank";
+  const upiUrl = `upi://pay?pa=${upiId}&pn=Shree%20Pratham%20Multi-Market&am=${parseFloat(amount).toFixed(2)}&cu=INR`;
   const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(upiUrl)}`;
 
   res.json({

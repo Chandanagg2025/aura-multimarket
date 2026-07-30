@@ -39,13 +39,13 @@ export default function OrderHistoryModal() {
                   {order.items?.map((item, idx) => (
                     <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--text-secondary)', marginBottom: '4px' }}>
                       <span>{item.quantity}x {item.name}</span>
-                      <span>${(item.price * item.quantity).toFixed(2)}</span>
+                      <span>₹{(item.price * item.quantity).toLocaleString('en-IN')}</span>
                     </div>
                   ))}
                 </div>
 
                 <div style={{ textAlign: 'right', fontWeight: '800', fontSize: '1.05rem', color: 'var(--accent-primary)', marginTop: '10px', paddingTop: '8px', borderTop: '1px dashed var(--border-color)' }}>
-                  Total Paid: ${order.totalPaid.toFixed(2)}
+                  Total Paid: ₹{order.totalPaid.toLocaleString('en-IN')}
                 </div>
               </div>
             ))}

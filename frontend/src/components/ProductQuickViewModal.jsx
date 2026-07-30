@@ -37,7 +37,7 @@ export default function ProductQuickViewModal() {
             <div style={{ marginTop: 'auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '16px', borderTop: '1px solid var(--border-color)' }}>
               <div>
                 <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Price</span>
-                <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', fontWeight: '800', color: '#FFF', display: 'block' }}>${selectedProduct.price.toFixed(2)}</span>
+                <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', fontWeight: '800', color: '#FFF', display: 'block' }}>₹{selectedProduct.price.toLocaleString('en-IN')}</span>
               </div>
 
               <button className="btn btn-primary" onClick={() => { addToCart(selectedProduct); setSelectedProduct(null); }}>

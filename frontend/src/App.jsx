@@ -17,7 +17,7 @@ export default function App() {
   return (
     <div className="app-container">
       <div className="announcement-bar">
-        <span>🎉 <strong>SPECIAL LAUNCH OFFER:</strong> Use code <code className="code-badge">SAVE10</code> for 10% OFF across all 4 sectors! Free express shipping over $50.</span>
+        <span>🎉 <strong>SPECIAL LAUNCH OFFER:</strong> Use code <code className="code-badge">SAVE10</code> for 10% OFF across all 4 sectors! Free express shipping over ₹1,000.</span>
       </div>
 
       <Header />
@@ -33,7 +33,7 @@ export default function App() {
 
       <footer className="main-footer" style={{ background: 'var(--bg-glass)', borderTop: '1px solid var(--border-color)', padding: '40px 24px', textAlign: 'center', marginTop: '60px' }}>
         <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
-          &copy; 2026 AURA Multi-Market Inc. Dedicated Quad-Sector Commerce Architecture.
+          &copy; 2026 Shree Pratham Multi-Market Inc. Dedicated Quad-Sector Commerce Architecture.
         </p>
       </footer>
 

@@ -2,11 +2,11 @@ import React from 'react';
 import { useStore } from '../context/StoreContext';
 
 export default function Header() {
-  const { 
+  const {
     activeSector, selectSector, goToHome,
-    searchQuery, setSearchQuery, 
-    cart, wishlist, 
-    setIsCartOpen, setIsOrdersOpen 
+    searchQuery, setSearchQuery,
+    cart, wishlist,
+    setIsCartOpen, setIsOrdersOpen
   } = useStore();
 
   const totalCartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -15,12 +15,12 @@ export default function Header() {
     <header className="main-header">
       <div className="header-container">
         <a href="#" className="brand-logo" onClick={(e) => { e.preventDefault(); goToHome(); }} title="Go to Sector Selection Home">
-          <div className="logo-icon">
-            <i className="fa-solid fa-gem"></i>
+          <div className="logo-icon" style={{ background: 'white' }}>
+            <img src="/logo.png" alt="Shree Pratham Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
           </div>
+
           <div className="logo-text">
-            <span className="logo-name">AURA</span>
-            <span className="logo-sub">MULTI-MARKET</span>
+            <span className="logo-name" style={{ fontSize: '1.25rem' }}>Shree Pratham</span>
           </div>
         </a>
 
@@ -46,8 +46,8 @@ export default function Header() {
           {activeSector && (
             <div className="search-box">
               <i className="fa-solid fa-magnifying-glass search-icon"></i>
-              <input 
-                type="text" 
+              <input
+                type="text"
                 placeholder={`Search in ${activeSector}...`}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}

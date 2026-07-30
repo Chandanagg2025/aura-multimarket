@@ -1,9 +1,11 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 
 const productRoutes = require('./routes/products');
 const orderRoutes = require('./routes/orders');
 const paymentRoutes = require('./routes/payment');
+const contactRoutes = require('./routes/contact');
 
 const app = express();
 
@@ -16,10 +18,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api', productRoutes);
 app.use('/api', orderRoutes);
 app.use('/api', paymentRoutes);
+app.use('/api', contactRoutes);
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'OK', message: 'AURA Multi-Market Backend API Server Running', timestamp: new Date() });
+  res.json({ status: 'OK', message: 'Shree Pratham Multi-Market Backend API Server Running', timestamp: new Date() });
 });
 
 module.exports = app;

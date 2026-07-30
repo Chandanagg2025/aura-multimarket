@@ -61,3 +61,18 @@ export async function fetchOrders() {
   if (!res.ok) throw new Error('Failed to fetch order history');
   return res.json();
 }
+
+export async function sendContactInquiry(contactData) {
+  const res = await fetch(`${API_BASE}/contact`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(contactData)
+  });
+  return res.json();
+}
+
+export async function fetchOrderByRef(ref) {
+  const res = await fetch(`${API_BASE}/orders/${ref}`);
+  if (!res.ok) throw new Error('Failed to fetch order details');
+  return res.json();
+}

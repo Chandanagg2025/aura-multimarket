@@ -21,8 +21,8 @@ export default function CartDrawer() {
   }
 
   const tax = subtotal * 0.08;
-  const isFreeShip = subtotal >= 50 || (appliedCoupon && appliedCoupon.type === 'shipping');
-  const shipping = isFreeShip || subtotal === 0 ? 0 : 15.00;
+  const isFreeShip = subtotal >= 1000 || (appliedCoupon && appliedCoupon.type === 'shipping');
+  const shipping = isFreeShip || subtotal === 0 ? 0 : 100.00;
   const grandTotal = Math.max(0, subtotal - discount + tax + shipping);
 
   const handleApplyCoupon = (e) => {
@@ -47,10 +47,10 @@ export default function CartDrawer() {
         <div style={{ padding: '20px', flexGrow: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <div style={{ background: 'var(--bg-card)', padding: '12px 16px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
             <div style={{ fontSize: '0.8rem', fontWeight: '600', marginBottom: '6px', color: 'var(--text-secondary)' }}>
-              {subtotal >= 50 ? '🎉 You unlocked FREE Express Delivery!' : `Add $${(50 - subtotal).toFixed(2)} more for FREE Delivery!`}
+              {subtotal >= 1000 ? '🎉 You unlocked FREE Express Delivery!' : `Add ₹${(1000 - subtotal).toLocaleString('en-IN')} more for FREE Delivery!`}
             </div>
             <div style={{ height: '6px', background: 'rgba(255,255,255,0.1)', borderRadius: 'var(--radius-full)', overflow: 'hidden' }}>
-              <div style={{ height: '100%', background: 'linear-gradient(90deg, #38BDF8, #10B981)', width: `${Math.min(100, (subtotal / 50) * 100)}%`, transition: '0.3s ease' }}></div>
+              <div style={{ height: '100%', background: 'linear-gradient(90deg, #38BDF8, #10B981)', width: `${Math.min(100, (subtotal / 1000) * 100)}%`, transition: '0.3s ease' }}></div>
             </div>
           </div>
 
@@ -76,7 +76,7 @@ export default function CartDrawer() {
                   </div>
 
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '6px' }}>
-                    <span style={{ fontWeight: '800', fontSize: '0.95rem', color: '#FFF' }}>${(item.price * item.quantity).toFixed(2)}</span>
+                    <span style={{ fontWeight: '800', fontSize: '0.95rem', color: '#FFF' }}>₹{(item.price * item.quantity).toLocaleString('en-IN')}</span>
 
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(255,255,255,0.06)', padding: '2px 8px', borderRadius: 'var(--radius-full)' }}>
                       <button onClick={() => updateCartQuantity(item.id, -1)} style={{ background: 'none', border: 'none', color: '#FFF', cursor: 'pointer' }}>-</button>
@@ -105,25 +105,25 @@ export default function CartDrawer() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '16px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.88rem', color: 'var(--text-secondary)' }}>
-                <span>Subtotal</span><span>${subtotal.toFixed(2)}</span>
+                <span>Subtotal</span><span>₹{subtotal.toLocaleString('en-IN')}</span>
               </div>
 
               {discount > 0 && (
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.88rem', color: 'var(--color-success)', fontWeight: '700' }}>
-                  <span>Promo Discount ({appliedCoupon.code})</span><span>-${discount.toFixed(2)}</span>
+                  <span>Promo Discount ({appliedCoupon.code})</span><span>-₹{discount.toLocaleString('en-IN')}</span>
                 </div>
               )}
 
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.88rem', color: 'var(--text-secondary)' }}>
-                <span>Estimated Tax (8%)</span><span>${tax.toFixed(2)}</span>
+                <span>Estimated Tax (8%)</span><span>₹{tax.toLocaleString('en-IN')}</span>
               </div>
 
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.88rem', color: 'var(--text-secondary)' }}>
-                <span>Shipping Fee</span><span>{shipping === 0 ? 'FREE' : `$${shipping.toFixed(2)}`}</span>
+                <span>Shipping Fee</span><span>{shipping === 0 ? 'FREE' : `₹${shipping.toLocaleString('en-IN')}`}</span>
               </div>
 
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1.15rem', fontWeight: '800', color: '#FFF', borderTop: '1px solid var(--border-color)', paddingTop: '8px' }}>
-                <span>Grand Total</span><span style={{ color: 'var(--accent-primary)' }}>${grandTotal.toFixed(2)}</span>
+                <span>Grand Total</span><span style={{ color: 'var(--accent-primary)' }}>₹{grandTotal.toLocaleString('en-IN')}</span>
               </div>
             </div>
 

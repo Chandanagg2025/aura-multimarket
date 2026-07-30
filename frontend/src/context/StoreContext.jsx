@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { fetchProducts, validateCoupon, createOrderApi } from '../api/client';
+import { fetchProducts, validateCoupon, createOrderApi, fetchOrderByRef } from '../api/client';
 
 const StoreContext = createContext();
 
@@ -11,9 +11,9 @@ export function StoreProvider({ children }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState('featured');
 
-  const [cart, setCart] = useState(() => JSON.parse(localStorage.getItem('aura_cart') || '[]'));
-  const [wishlist, setWishlist] = useState(() => JSON.parse(localStorage.getItem('aura_wishlist') || '[]'));
-  const [orders, setOrders] = useState(() => JSON.parse(localStorage.getItem('aura_orders') || '[]'));
+  const [cart, setCart] = useState(() => JSON.parse(localStorage.getItem('shree_pratham_cart') || '[]'));
+  const [wishlist, setWishlist] = useState(() => JSON.parse(localStorage.getItem('shree_pratham_wishlist') || '[]'));
+  const [orders, setOrders] = useState(() => JSON.parse(localStorage.getItem('shree_pratham_orders') || '[]'));
   const [appliedCoupon, setAppliedCoupon] = useState(null);
 
   // Modals & UI States
@@ -58,12 +58,46 @@ export function StoreProvider({ children }) {
 
   // Sync state to local storage
   useEffect(() => {
-    localStorage.setItem('aura_cart', JSON.stringify(cart));
+    localStorage.setItem('shree_pratham_cart', JSON.stringify(cart));
   }, [cart]);
 
   useEffect(() => {
-    localStorage.setItem('aura_wishlist', JSON.stringify(wishlist));
+    localStorage.setItem('shree_pratham_wishlist', JSON.stringify(wishlist));
   }, [wishlist]);
+
+  useEffect(() => {
+    localStorage.setItem('shree_pratham_orders', JSON.stringify(orders));
+  }, [orders]);
+
+  // Read URL query params on initial mount to auto-track orders
+  useEffect(() => {
+    const handleTracking = async () => {
+      const params = new URLSearchParams(window.location.search);
+      const trackRef = params.get('track');
+      if (trackRef) {
+        console.log(`[Tracking] Found track parameter: ${trackRef}. Fetching order...`);
+        try {
+          const res = await fetchOrderByRef(trackRef);
+          if (res.success && res.order) {
+            console.log(`[Tracking] Order details loaded successfully. Opening invoice modal...`);
+            setActiveReceipt(res.order);
+            showToast(`Tracking order: ${res.order.orderRef}`, 'success');
+            
+            // Clean up the URL query parameter without reloading the page
+            const newUrl = window.location.pathname;
+            window.history.replaceState({}, document.title, newUrl);
+          } else {
+            showToast('Order not found or invalid reference number', 'danger');
+          }
+        } catch (error) {
+          console.error('[Tracking Error] Failed to fetch tracked order:', error);
+          showToast('Failed to fetch tracked order from server', 'danger');
+        }
+      }
+    };
+
+    handleTracking();
+  }, []);
 
   // Sector Selection Handler
   const selectSector = (sectorId) => {

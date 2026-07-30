@@ -11,5 +11,7 @@ frontend/dist
 # Databases & local files
 *.db
 backend/database/*.db
+.env
+*.env
 .DS_Store
 *.log

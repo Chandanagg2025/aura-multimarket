@@ -31,17 +31,17 @@ export default function OrderReceiptModal() {
           {activeReceipt.items?.map((item, i) => (
             <div key={i} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', padding: '6px 0', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
               <span>{item.quantity}x {item.name} ({item.sector})</span>
-              <strong>${(item.price * item.quantity).toFixed(2)}</strong>
+              <strong>₹{(item.price * item.quantity).toLocaleString('en-IN')}</strong>
             </div>
           ))}
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '14px', paddingTop: '10px', borderTop: '1px solid var(--border-color)', fontSize: '0.9rem' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>Subtotal:</span><span>${activeReceipt.subtotal.toFixed(2)}</span></div>
-            {activeReceipt.discount > 0 && <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--color-success)' }}><span>Discount:</span><span>-${activeReceipt.discount.toFixed(2)}</span></div>}
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>Tax (8%):</span><span>${activeReceipt.tax.toFixed(2)}</span></div>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>Shipping:</span><span>{activeReceipt.shippingFee === 0 ? 'FREE' : `$${activeReceipt.shippingFee.toFixed(2)}`}</span></div>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>Subtotal:</span><span>₹{activeReceipt.subtotal.toLocaleString('en-IN')}</span></div>
+            {activeReceipt.discount > 0 && <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--color-success)' }}><span>Discount:</span><span>-₹{activeReceipt.discount.toLocaleString('en-IN')}</span></div>}
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>Tax (8%):</span><span>₹{activeReceipt.tax.toLocaleString('en-IN')}</span></div>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}><span>Shipping:</span><span>{activeReceipt.shippingFee === 0 ? 'FREE' : `₹${activeReceipt.shippingFee.toLocaleString('en-IN')}`}</span></div>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1.2rem', fontWeight: '800', color: '#FFF', marginTop: '6px' }}>
-              <span>Total Paid:</span><span style={{ color: 'var(--accent-primary)' }}>${activeReceipt.totalPaid.toFixed(2)}</span>
+              <span>Total Paid:</span><span style={{ color: 'var(--accent-primary)' }}>₹{activeReceipt.totalPaid.toLocaleString('en-IN')}</span>
             </div>
           </div>
         </div>

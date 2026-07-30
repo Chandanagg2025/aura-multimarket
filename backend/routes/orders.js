@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../config/db');
+const { sendOrderEmail, sendWhatsAppNotification } = require('../services/notification');
 
 // POST /api/orders - Create a new order
 router.post('/orders', (req, res) => {
@@ -33,25 +34,31 @@ router.post('/orders', (req, res) => {
         });
         stmtItem.finalize();
 
+        const orderObj = {
+          orderRef,
+          date: dateStr,
+          customerName,
+          customerEmail,
+          customerPhone,
+          shippingAddress,
+          paymentMethod,
+          subtotal,
+          discount,
+          tax,
+          shippingFee,
+          totalPaid,
+          items,
+          status: 'Payment Confirmed'
+        };
+
+        // Asynchronously trigger email & WhatsApp alerts without blocking response
+        sendOrderEmail(orderObj).catch(err => console.error("Deferred email sending failed:", err));
+        sendWhatsAppNotification(orderObj).catch(err => console.error("Deferred WhatsApp alert failed:", err));
+
         res.json({
           success: true,
           message: 'Order created successfully',
-          order: {
-            orderRef,
-            date: dateStr,
-            customerName,
-            customerEmail,
-            customerPhone,
-            shippingAddress,
-            paymentMethod,
-            subtotal,
-            discount,
-            tax,
-            shippingFee,
-            totalPaid,
-            items,
-            status: 'Payment Confirmed'
-          }
+          order: orderObj
         });
       }
     );
@@ -69,14 +76,41 @@ router.get('/orders', (req, res) => {
 // GET /api/orders/:ref - Get single order with items
 router.get('/orders/:ref', (req, res) => {
   const { ref } = req.params;
+  const searchRef = ref.startsWith('#') ? ref : `#${ref}`;
 
-  db.get('SELECT * FROM orders WHERE order_ref = ?', [ref], (err, order) => {
+  db.get('SELECT * FROM orders WHERE order_ref = ?', [searchRef], (err, order) => {
     if (err) return res.status(500).json({ error: err.message });
     if (!order) return res.status(404).json({ error: 'Order not found' });
 
-    db.all('SELECT * FROM order_items WHERE order_ref = ?', [ref], (err, items) => {
+    db.all('SELECT * FROM order_items WHERE order_ref = ?', [searchRef], (err, items) => {
       if (err) return res.status(500).json({ error: err.message });
-      res.json({ success: true, order: { ...order, items } });
+      
+      const mappedItems = items.map(item => ({
+        id: item.product_id,
+        name: item.product_name,
+        price: item.price,
+        quantity: item.quantity,
+        sector: item.sector
+      }));
+
+      const mappedOrder = {
+        orderRef: order.order_ref,
+        date: order.date,
+        customerName: order.customer_name,
+        customerEmail: order.customer_email,
+        customerPhone: order.customer_phone,
+        shippingAddress: order.shipping_address,
+        paymentMethod: order.payment_method,
+        subtotal: order.subtotal,
+        discount: order.discount,
+        tax: order.tax,
+        shippingFee: order.shipping_fee,
+        totalPaid: order.total_paid,
+        status: order.status,
+        items: mappedItems
+      };
+
+      res.json({ success: true, order: mappedOrder });
     });
   });
 });

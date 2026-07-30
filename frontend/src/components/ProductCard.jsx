@@ -42,8 +42,8 @@ export default function ProductCard({ product }) {
 
         <div className="product-bottom-row">
           <div>
-            <span className="current-price">${product.price.toFixed(2)}</span>
-            {product.originalPrice && <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textDecoration: 'line-through', marginLeft: '6px' }}>${product.originalPrice.toFixed(2)}</span>}
+            <span className="current-price">₹{product.price.toLocaleString('en-IN')}</span>
+            {product.originalPrice && <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textDecoration: 'line-through', marginLeft: '6px' }}>₹{product.originalPrice.toLocaleString('en-IN')}</span>}
           </div>
 
           <button className="btn btn-primary" onClick={() => addToCart(product)} style={{ padding: '8px 16px', fontSize: '0.85rem' }}>

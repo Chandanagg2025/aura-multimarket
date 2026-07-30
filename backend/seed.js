@@ -7,9 +7,9 @@ const SEED_PRODUCTS = [
     sector: "water",
     sector_name: "Water & Hydration",
     sub_category: "purifiers",
-    name: "AURA HydroPure Pro 9-Stage Smart Water Purifier",
-    price: 349.99,
-    original_price: 429.99,
+    name: "Shree Pratham HydroPure Pro 9-Stage Smart Water Purifier",
+    price: 18999.00,
+    original_price: 24999.00,
     rating: 4.9,
     reviews_count: 142,
     badge: "Bestseller",
@@ -30,8 +30,8 @@ const SEED_PRODUCTS = [
     sector_name: "Water & Hydration",
     sub_category: "mineral",
     name: "Aptia Glacier Mineral Water (Case of 12 Glass Bottles)",
-    price: 34.99,
-    original_price: 44.99,
+    price: 1499.00,
+    original_price: 1999.00,
     rating: 4.8,
     reviews_count: 98,
     badge: "Organic",
@@ -51,8 +51,8 @@ const SEED_PRODUCTS = [
     sector_name: "Water & Hydration",
     sub_category: "bottles",
     name: "HydroFlask Insulated Smart Hydration Bottle 1000ml",
-    price: 49.99,
-    original_price: 59.99,
+    price: 2499.00,
+    original_price: 3299.00,
     rating: 4.7,
     reviews_count: 210,
     badge: "Trending",
@@ -72,8 +72,8 @@ const SEED_PRODUCTS = [
     sector_name: "Water & Hydration",
     sub_category: "purifiers",
     name: "AlkaFlow Countertop Hydrogen-Rich Water Generator",
-    price: 279.00,
-    original_price: 320.00,
+    price: 12999.00,
+    original_price: 15999.00,
     rating: 4.9,
     reviews_count: 64,
     badge: "New Tech",
@@ -87,93 +87,195 @@ const SEED_PRODUCTS = [
       "Self-cleaning electrode cycle"
     ])
   },
-
-  // CAMERA SECTOR
   {
-    id: "cam-001",
-    sector: "camera",
-    sector_name: "Cameras & Optics",
-    sub_category: "dslr",
-    name: "Lumina Alpha FX9 4K Cinema Mirrorless Camera",
-    price: 1899.99,
-    original_price: 2199.99,
-    rating: 4.95,
-    reviews_count: 312,
-    badge: "Pro Choice",
-    is_featured: 1,
-    image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=80",
-    description: "Full-frame 35.7MP BSI CMOS sensor featuring 4K 120fps uncompressed RAW video recording, 5-axis IBIS, dual Native ISO, and real-time AI eye tracking autofocus.",
-    specs: JSON.stringify([
-      "35.7 Megapixel Full-Frame Back-Illuminated Sensor",
-      "4K 120fps & 8K 30fps RAW 10-bit 4:2:2 recording",
-      "In-Body 5-Axis Optical Image Stabilization (7 stops)",
-      "Dual CFexpress Type-A / SD Card Slots",
-      "Weather-sealed magnesium alloy chassis"
-    ])
-  },
-  {
-    id: "cam-002",
-    sector: "camera",
-    sector_name: "Cameras & Optics",
-    sub_category: "action",
-    name: "GoCam X-Extreme 4K Waterproof Action Camera",
-    price: 329.99,
-    original_price: 389.99,
-    rating: 4.8,
-    reviews_count: 185,
-    badge: "Hot Deal",
-    is_featured: 0,
-    image: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=600&q=80",
-    description: "Ultra-compact rugged camera with Horizon Lock 4.0 stabilization, 4K 60fps HDR video, dual touchscreens, and waterproof up to 33ft (10m) without housing.",
-    specs: JSON.stringify([
-      "5.3K 60fps & 4K 120fps high frame rate capture",
-      "HyperSmooth 6.0 horizon stabilization",
-      "Front and rear high-contrast LCD screens",
-      "Voice control in 10 languages",
-      "Waterproof to 10 meters depth"
-    ])
-  },
-  {
-    id: "cam-003",
-    sector: "camera",
-    sector_name: "Cameras & Optics",
-    sub_category: "security",
-    name: "Sentinel 360° AI Solar Security Camera Kit",
-    price: 199.99,
-    original_price: 249.99,
+    id: "wat-005",
+    sector: "water",
+    sector_name: "Water & Hydration",
+    sub_category: "appliances",
+    name: "Shree Pratham Digital Water Quality Analyzer (TDS/pH/Temp)",
+    price: 3499.00,
+    original_price: 4499.00,
     rating: 4.85,
-    reviews_count: 124,
-    badge: "Smart Home",
+    reviews_count: 36,
+    badge: "Industrial",
     is_featured: 1,
-    image: "https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=crop&w=600&q=80",
-    description: "100% wire-free outdoor PTZ surveillance camera powered by continuous solar panel charging, 2K color night vision, radar motion detection, and cloud recording.",
+    image: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=600&q=80",
+    description: "High-accuracy digital water tester designed for industries. Measures TDS, pH levels, and fluid temperature simultaneously with dynamic LCD backlight.",
     specs: JSON.stringify([
-      "2K QHD 360° Pan & 90° Tilt coverage",
-      "Integrated High-efficiency Solar Panel",
-      "AI Human & Vehicle Detection with auto-tracking",
-      "Full-color Spotlight Night Vision",
-      "Two-way audio & 110dB emergency siren"
+      "Triple parameter monitoring: TDS, pH & Temperature",
+      "Replaceable high-sensitivity sensor probe",
+      "Automatic temperature compensation (ATC)",
+      "Rechargeable battery with auto power-off"
     ])
   },
   {
-    id: "cam-004",
+    id: "wat-006",
+    sector: "water",
+    sector_name: "Water & Hydration",
+    sub_category: "appliances",
+    name: "Shree Pratham Electromagnetic Flow Meter",
+    price: 24999.00,
+    original_price: 29999.00,
+    rating: 4.9,
+    reviews_count: 24,
+    badge: "Industrial",
+    is_featured: 0,
+    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+    description: "Electromagnetic flow meter designed for pipes in water treatment plants. Features digital rate logging and industrial RS485 Modbus communication protocol.",
+    specs: JSON.stringify([
+      "Highly accurate volumetric flow measurement",
+      "Corrosion-resistant PTFE liner",
+      "Backlit LCD display for rate & totalizer",
+      "Compatible with standard industrial networks"
+    ])
+  },
+  {
+    id: "wat-007",
+    sector: "water",
+    sector_name: "Water & Hydration",
+    sub_category: "appliances",
+    name: "Shree Pratham Industrial Borewell Piezometer (Water Level)",
+    price: 14999.00,
+    original_price: 18999.00,
+    rating: 4.75,
+    reviews_count: 15,
+    badge: "Industrial",
+    is_featured: 0,
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80",
+    description: "Submersible water level sensor designed for deep borewells, industrial reservoirs, and mining sites. Enclosed in heavy-duty IP68 stainless steel.",
+    specs: JSON.stringify([
+      "IP68 waterproof rating with vented cable structure",
+      "High accuracy silicon piezoresistive pressure cell",
+      "Sturdy 316L stainless steel diaphragm",
+      "Long-term stability with surge protection"
+    ])
+  },
+  {
+    id: "wat-008",
+    sector: "water",
+    sector_name: "Water & Hydration",
+    sub_category: "drinking",
+    name: "Tata Copper Water (Case of 24 PET Bottles)",
+    price: 960.00,
+    original_price: 1200.00,
+    rating: 4.8,
+    reviews_count: 110,
+    badge: "Tata Pure",
+    is_featured: 1,
+    image: "https://images.unsplash.com/photo-1608889175123-8ec330b86f84?auto=format&fit=crop&w=600&q=80",
+    description: "Tata Copper Plus alkaline water enriched with essential copper minerals. Crafted to support metabolism, digestive health, and optimal daily hydration.",
+    specs: JSON.stringify([
+      "Enriched with high purity copper minerals",
+      "Assists in healthy immune and digestive systems",
+      "Case of 24 x 500ml PET bottles",
+      "Strict quality purification standards"
+    ])
+  },
+  {
+    id: "wat-009",
+    sector: "water",
+    sector_name: "Water & Hydration",
+    sub_category: "drinking",
+    name: "Iota Pure Distilled Water (Case of 6 x 5L Cans)",
+    price: 1499.00,
+    original_price: 1800.00,
+    rating: 4.65,
+    reviews_count: 54,
+    badge: "Iota Pure",
+    is_featured: 0,
+    image: "https://images.unsplash.com/photo-1523362628745-0c100150b504?auto=format&fit=crop&w=600&q=80",
+    description: "Ultra-pure double distilled water by Iota. Zero minerals, contaminants, or scale-forming minerals. Excellent for autoclaves, CPAP machines, and battery maintenance.",
+    specs: JSON.stringify([
+      "Double steam distillation filter cycle",
+      "TDS level under 1 ppm for chemical purity",
+      "6 x 5-Liter durable bulk canisters",
+      "Paraffin and mineral free"
+    ])
+  },
+
+  // CAMERA SECTOR (CCTV ONLY)
+  {
+    id: "cam-005",
     sector: "camera",
     sector_name: "Cameras & Optics",
-    sub_category: "lenses",
-    name: "Apex Prime 85mm f/1.2 Portrait Master Lens",
-    price: 899.99,
-    original_price: 999.99,
-    rating: 4.9,
-    reviews_count: 76,
-    badge: "Exclusive",
-    is_featured: 0,
-    image: "https://images.unsplash.com/photo-1617005082133-548c4dd27f35?auto=format&fit=crop&w=600&q=80",
-    description: "Ultra-fast prime lens delivering velvety bokeh, razor-sharp focus wide open, nano AR coating, and linear motor ultrasonic AF for high-res portraiture.",
+    sub_category: "cctv",
+    name: "Shree Pratham PTZ Dome 360 CCTV Camera",
+    price: 7999.00,
+    original_price: 9999.00,
+    rating: 4.8,
+    reviews_count: 42,
+    badge: "Outdoor PTZ",
+    is_featured: 1,
+    image: "https://images.unsplash.com/photo-1549556259-d6e32e8b2611?auto=format&fit=crop&w=600&q=80",
+    description: "High-security outdoor dome camera with 360° pan, 90° tilt, high-power infrared LEDs for dark settings, and dynamic sound alerts.",
     specs: JSON.stringify([
-      "Ultra-wide f/1.2 aperture for shallow depth of field",
-      "11-blade circular aperture diaphragm",
-      "ED glass elements minimize chromatic aberration",
-      "Focus hold button and de-clickable aperture ring"
+      "Full HD 1080p surveillance video stream",
+      "Motorized 360-degree pan & tilt control",
+      "Waterproof IP66 heavy composite outer shell",
+      "Two-way high-volume speak intercom"
+    ])
+  },
+  {
+    id: "cam-006",
+    sector: "camera",
+    sector_name: "Cameras & Optics",
+    sub_category: "cctv",
+    name: "Shree Pratham AI NightVision Bullet CCTV Camera",
+    price: 5499.00,
+    original_price: 6999.00,
+    rating: 4.75,
+    reviews_count: 31,
+    badge: "Night Vision",
+    is_featured: 0,
+    image: "https://images.unsplash.com/photo-1524338198850-8a2ff63a6b5f?auto=format&fit=crop&w=600&q=80",
+    description: "Heavy-duty outdoor bullet camera equipped with smart AI sensors to filter false alarms and spotlight systems for full color night recording.",
+    specs: JSON.stringify([
+      "Intelligent human & vehicle filter alerts",
+      "Full color night vision up to 30 meters",
+      "Wide-angle lens with 110-degree coverage field",
+      "Sturdy vandal-resistant structural body"
+    ])
+  },
+  {
+    id: "cam-007",
+    sector: "camera",
+    sector_name: "Cameras & Optics",
+    sub_category: "cctv",
+    name: "Shree Pratham Smart Mini Dome Indoor CCTV Camera",
+    price: 3299.00,
+    original_price: 4499.00,
+    rating: 4.7,
+    reviews_count: 58,
+    badge: "Indoor Dome",
+    is_featured: 0,
+    image: "https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=crop&w=600&q=80",
+    description: "Compact interior dome camera for living rooms and office desks. Includes smart sound detection, baby monitor chimes, and secure local micro-SD storage.",
+    specs: JSON.stringify([
+      "Instant push warnings on sound/motion",
+      "Auto-tracking rotating lens mechanism",
+      "Supports local micro-SD storage up to 256GB",
+      "Easy wall mount bracket included"
+    ])
+  },
+  {
+    id: "cam-008",
+    sector: "camera",
+    sector_name: "Cameras & Optics",
+    sub_category: "cctv",
+    name: "Shree Pratham Multi-Lens Dual-Screen CCTV Camera",
+    price: 11999.00,
+    original_price: 14999.00,
+    rating: 4.9,
+    reviews_count: 19,
+    badge: "Panoramic Dual",
+    is_featured: 0,
+    image: "https://images.unsplash.com/photo-1563206767-5b18f218e8de?auto=format&fit=crop&w=600&q=80",
+    description: "State-of-the-art dual lens camera that displays two video panels simultaneously on your smartphone: one fixed wide overview and one active rotating PTZ tracker.",
+    specs: JSON.stringify([
+      "Dual lenses: fixed ultra-wide lens + PTZ lens",
+      "Tracks and zooms in on human movement automatically",
+      "Dual screen monitoring on iOS/Android client apps",
+      "Active warning siren and flashing blue-red light warnings"
     ])
   },
 
@@ -183,9 +285,9 @@ const SEED_PRODUCTS = [
     sector: "clothing",
     sector_name: "Apparel & Fashion",
     sub_category: "jackets",
-    name: "AURA Obsidian Tech Fleece Heavyweight Hoodie",
-    price: 119.99,
-    original_price: 149.99,
+    name: "Shree Pratham Obsidian Tech Fleece Heavyweight Hoodie",
+    price: 4999.00,
+    original_price: 5999.00,
     rating: 4.85,
     reviews_count: 240,
     badge: "Bestseller",
@@ -205,8 +307,8 @@ const SEED_PRODUCTS = [
     sector_name: "Apparel & Fashion",
     sub_category: "streetwear",
     name: "Vanguard Luxe Oversized Graphic Streetwear Tee",
-    price: 45.00,
-    original_price: 55.00,
+    price: 1999.00,
+    original_price: 2499.00,
     rating: 4.7,
     reviews_count: 165,
     badge: "Trending",
@@ -226,8 +328,8 @@ const SEED_PRODUCTS = [
     sector_name: "Apparel & Fashion",
     sub_category: "activewear",
     name: "Apex Perform 4-Way Stretch Training Joggers",
-    price: 79.99,
-    original_price: 95.00,
+    price: 2999.00,
+    original_price: 3499.00,
     rating: 4.9,
     reviews_count: 190,
     badge: "Featured",
@@ -247,8 +349,8 @@ const SEED_PRODUCTS = [
     sector_name: "Apparel & Fashion",
     sub_category: "jackets",
     name: "Elysian Artisan Italian Genuine Leather Jacket",
-    price: 399.99,
-    original_price: 489.99,
+    price: 18999.00,
+    original_price: 22999.00,
     rating: 4.95,
     reviews_count: 52,
     badge: "Luxury",
@@ -262,6 +364,90 @@ const SEED_PRODUCTS = [
       "Tailored modern cut with adjustable waist tabs"
     ])
   },
+  {
+    id: "clo-005",
+    sector: "clothing",
+    sector_name: "Apparel & Fashion",
+    sub_category: "shirts",
+    name: "Shree Pratham Classic Linen Summer Shirt",
+    price: 2499.00,
+    original_price: 3499.00,
+    rating: 4.78,
+    reviews_count: 85,
+    badge: "Linen",
+    is_featured: 1,
+    image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=600&q=80",
+    description: "Lightweight and breathable long-sleeve casual shirt woven from 100% natural organic flax linen. Perfect for smart-casual summer wear.",
+    specs: JSON.stringify([
+      "100% organic French flax linen fiber",
+      "Pre-washed texture for ultimate softness",
+      "Classic spread collar and adjustable buttoned cuffs",
+      "Sustainable coconut shell button details"
+    ])
+  },
+  {
+    id: "clo-006",
+    sector: "clothing",
+    sector_name: "Apparel & Fashion",
+    sub_category: "pants",
+    name: "Shree Pratham Comfort Fit Denim Jeans",
+    price: 3499.00,
+    original_price: 4999.00,
+    rating: 4.8,
+    reviews_count: 120,
+    badge: "Denim",
+    is_featured: 0,
+    image: "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=600&q=80",
+    description: "Washed dark indigo denim jeans with regular-fit comfort. Tailored using premium ringspun cotton with a touch of stretch for day-long ease.",
+    specs: JSON.stringify([
+      "99% Premium Ringspun Cotton, 1% Lycra stretch",
+      "Authentic heavy-duty metal rivets and zip fly",
+      "Triple-needle stitched seams for high durability",
+      "Fade and shrink-resistant rinse wash treatment"
+    ])
+  },
+  {
+    id: "clo-007",
+    sector: "clothing",
+    sector_name: "Apparel & Fashion",
+    sub_category: "shirts",
+    name: "Shree Pratham Active Dry-Fit Sports Polo",
+    price: 1499.00,
+    original_price: 1999.00,
+    rating: 4.7,
+    reviews_count: 64,
+    badge: "Dry-Fit",
+    is_featured: 0,
+    image: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=600&q=80",
+    description: "High-performance athletic polo shirt featuring quick-drying micro-mesh fabric. Engineered to wick moisture away and keep you dry on and off the court.",
+    specs: JSON.stringify([
+      "100% Recycled moisture-wicking polyester fabric",
+      "Breathable side mesh panels for ventilation",
+      "Modern three-button placket and rib-knit collar",
+      "Flatlock seams prevent skin chafing"
+    ])
+  },
+  {
+    id: "clo-008",
+    sector: "clothing",
+    sector_name: "Apparel & Fashion",
+    sub_category: "sweaters",
+    name: "Shree Pratham Knit Cotton Crewneck Sweater",
+    price: 3999.00,
+    original_price: 4999.00,
+    rating: 4.82,
+    reviews_count: 45,
+    badge: "Winter Wear",
+    is_featured: 0,
+    image: "https://images.unsplash.com/photo-1614975058789-41316d0e2e9c?auto=format&fit=crop&w=600&q=80",
+    description: "Warm, cozy midweight sweater knitted with pure combed cotton threads. Minimalist design styling featuring ribbed crewneck collar, sleeve cuffs, and hem.",
+    specs: JSON.stringify([
+      "100% Combed cotton soft-spun yarn",
+      "Breathable waffle-knit thermal structure",
+      "Classic fit styling with drop sleeves",
+      "Color-fast treatment resists pilling"
+    ])
+  },
 
   // GIFT GALLERY SECTOR
   {
@@ -270,8 +456,8 @@ const SEED_PRODUCTS = [
     sector_name: "Gift Gallery",
     sub_category: "hampers",
     name: "Royal Heritage Luxury Gourmet & Champagne Hamper",
-    price: 189.99,
-    original_price: 229.99,
+    price: 8999.00,
+    original_price: 10999.00,
     rating: 4.95,
     reviews_count: 88,
     badge: "Luxury Gift",
@@ -291,8 +477,8 @@ const SEED_PRODUCTS = [
     sector_name: "Gift Gallery",
     sub_category: "keepsakes",
     name: "Custom Engraved Crystal Memory Orb & LED Stand",
-    price: 69.99,
-    original_price: 85.00,
+    price: 3499.00,
+    original_price: 4499.00,
     rating: 4.85,
     reviews_count: 310,
     badge: "Personalised",
@@ -312,8 +498,8 @@ const SEED_PRODUCTS = [
     sector_name: "Gift Gallery",
     sub_category: "candles",
     name: "Botanical Aromatherapy Soy Candle Trio Gift Set",
-    price: 54.99,
-    original_price: 65.00,
+    price: 2499.00,
+    original_price: 3299.00,
     rating: 4.9,
     reviews_count: 140,
     badge: "Handmade",
@@ -333,8 +519,8 @@ const SEED_PRODUCTS = [
     sector_name: "Gift Gallery",
     sub_category: "keepsakes",
     name: "Executive Gold Foil Pen & Leather Journal Gift Box",
-    price: 89.99,
-    original_price: 110.00,
+    price: 4999.00,
+    original_price: 5999.00,
     rating: 4.8,
     reviews_count: 78,
     badge: "Corporate",
@@ -347,17 +533,101 @@ const SEED_PRODUCTS = [
       "Includes 200 pages of 120GSM fountain-pen friendly paper",
       "Magnetic luxury gift box presentation"
     ])
+  },
+  {
+    id: "gft-005",
+    sector: "gifts",
+    sector_name: "Gift Gallery",
+    sub_category: "crockery",
+    name: "Shree Pratham Handcrafted Ceramic Tea Set (12-Piece)",
+    price: 4499.00,
+    original_price: 5999.00,
+    rating: 4.9,
+    reviews_count: 27,
+    badge: "Artisanal",
+    is_featured: 1,
+    image: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80",
+    description: "Gorgeously glazed stoneware tea hosting set. Includes one teapot with wooden handle, six matching teacups, and coordinating bamboo tray.",
+    specs: JSON.stringify([
+      "Premium porcelain ceramics fired at 1300°C",
+      "Double-walled insulation keeps tea hot and exterior cool",
+      "Detachable natural bamboo handle and serving platter",
+      "Dishwasher and microwave safe components"
+    ])
+  },
+  {
+    id: "gft-006",
+    sector: "gifts",
+    sector_name: "Gift Gallery",
+    sub_category: "home",
+    name: "Shree Pratham Bonsai Tree Green Decor Gift Kit",
+    price: 2499.00,
+    original_price: 3200.00,
+    rating: 4.82,
+    reviews_count: 38,
+    badge: "Eco-Friendly",
+    is_featured: 0,
+    image: "https://images.unsplash.com/photo-1613143719002-de6b0807b587?auto=format&fit=crop&w=600&q=80",
+    description: "A beautiful live Juniper Bonsai tree set up in a ceramic glazed drainage pot. Packaged with professional nutrients and special shears.",
+    specs: JSON.stringify([
+      "4-year old healthy Juniper Bonsai starter tree",
+      "Bespoke ceramic pot with matching drip tray",
+      "High grade organic potting soil & slow-release nutrients",
+      "Includes high-carbon carbon steel pruning shears"
+    ])
+  },
+  {
+    id: "gft-007",
+    sector: "gifts",
+    sector_name: "Gift Gallery",
+    sub_category: "music",
+    name: "Shree Pratham Vintage Wooden Music Box (Hand-Cranked)",
+    price: 1899.00,
+    original_price: 2400.00,
+    rating: 4.78,
+    reviews_count: 72,
+    badge: "Vintage",
+    is_featured: 0,
+    image: "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=600&q=80",
+    description: "Mechanical music box carved out of maple hardwood. Simply rotate the side metal handle to play a crystal clear mechanical rendition of vintage folk tunes.",
+    specs: JSON.stringify([
+      "Laser-etched vintage wood carving design",
+      "Pure copper mechanical cylinder pin mechanism",
+      "Needs no batteries or electronic charging",
+      "Measures 6.4 x 5.2 x 4.2 cm for desk displays"
+    ])
+  },
+  {
+    id: "gft-008",
+    sector: "gifts",
+    sector_name: "Gift Gallery",
+    sub_category: "keepsakes",
+    name: "Shree Pratham Premium Leather Travel Passport Organizer",
+    price: 2999.00,
+    original_price: 3999.00,
+    rating: 4.85,
+    reviews_count: 51,
+    badge: "Travel Luxe",
+    is_featured: 0,
+    image: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80",
+    description: "Full-grain textured leather pocketbook for travelers. Safely houses your passport, up to 8 credit cards, paper cash, and boarding passes.",
+    specs: JSON.stringify([
+      "100% Genuine vegetable-tanned leather exterior",
+      "Built-in RFID blocking fabric liner layers",
+      "Sleek design fits comfortably inside jacket pockets",
+      "Sturdy metal zipper closure system"
+    ])
   }
 ];
 
 const SEED_COUPONS = [
   { code: 'SAVE10', type: 'percent', value: 10, description: '10% OFF Launch Discount' },
-  { code: 'AURA20', type: 'percent', value: 20, description: '20% OFF Luxury Offer' },
+  { code: 'SHREE20', type: 'percent', value: 20, description: '20% OFF Shree Pratham Discount' },
   { code: 'FREESHIP', type: 'shipping', value: 0, description: 'Free Express Shipping' }
 ];
 
 db.serialize(() => {
-  console.log("Seeding SQLite database...");
+  console.log("Seeding SQLite database with Shree Pratham multi-market products in INR...");
 
   // Clear existing
   db.run("DELETE FROM products");
@@ -379,5 +649,5 @@ db.serialize(() => {
   });
   stmtCoupon.finalize();
 
-  console.log("Database successfully seeded with Water, Camera, Clothing, and Gift products!");
+  console.log("Database successfully seeded with Water, Camera, Clothing, and Gift products in INR!");
 });
