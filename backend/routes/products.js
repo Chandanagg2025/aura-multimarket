@@ -1,6 +1,50 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../config/db');
+const { SEED_PRODUCTS } = require('../seed_data');
+
+function filterSeedProducts(sector, category, search, sort) {
+  let list = [...(SEED_PRODUCTS || [])];
+
+  if (sector && sector !== 'all') {
+    list = list.filter(p => p.sector === sector);
+  }
+
+  if (category && category !== 'all') {
+    list = list.filter(p => p.sub_category === category);
+  }
+
+  if (search) {
+    const q = search.toLowerCase();
+    list = list.filter(p =>
+      (p.name && p.name.toLowerCase().includes(q)) ||
+      (p.description && p.description.toLowerCase().includes(q)) ||
+      (p.sector_name && p.sector_name.toLowerCase().includes(q))
+    );
+  }
+
+  if (sort === 'price-low') {
+    list.sort((a, b) => a.price - b.price);
+  } else if (sort === 'price-high') {
+    list.sort((a, b) => b.price - a.price);
+  } else if (sort === 'rating') {
+    list.sort((a, b) => b.rating - a.rating);
+  } else if (sort === 'name') {
+    list.sort((a, b) => a.name.localeCompare(b.name));
+  } else {
+    list.sort((a, b) => (b.is_featured || 0) - (a.is_featured || 0) || (b.rating || 0) - (a.rating || 0));
+  }
+
+  return list.map(p => ({
+    ...p,
+    isFeatured: Boolean(p.is_featured),
+    originalPrice: p.original_price,
+    reviewsCount: p.reviews_count,
+    sectorName: p.sector_name,
+    subCategory: p.sub_category,
+    specs: typeof p.specs === 'string' ? JSON.parse(p.specs) : (p.specs || [])
+  }));
+}
 
 // GET /api/sectors - Get list of sectors and product count
 router.get('/sectors', (req, res) => {
@@ -10,8 +54,15 @@ router.get('/sectors', (req, res) => {
     GROUP BY sector
   `;
   db.all(query, [], (err, rows) => {
-    if (err) {
-      return res.status(500).json({ error: err.message });
+    if (err || !rows || rows.length === 0) {
+      const sectorCounts = {};
+      (SEED_PRODUCTS || []).forEach(p => {
+        if (!sectorCounts[p.sector]) {
+          sectorCounts[p.sector] = { sector: p.sector, sector_name: p.sector_name, count: 0 };
+        }
+        sectorCounts[p.sector].count++;
+      });
+      return res.json({ success: true, sectors: Object.values(sectorCounts) });
     }
     res.json({ success: true, sectors: rows });
   });
@@ -53,8 +104,9 @@ router.get('/products', (req, res) => {
   }
 
   db.all(query, params, (err, rows) => {
-    if (err) {
-      return res.status(500).json({ error: err.message });
+    if (err || !rows || rows.length === 0) {
+      const fallbackProducts = filterSeedProducts(sector, category, search, sort);
+      return res.json({ success: true, count: fallbackProducts.length, products: fallbackProducts });
     }
 
     // Parse specs JSON array
@@ -65,7 +117,7 @@ router.get('/products', (req, res) => {
       reviewsCount: p.reviews_count,
       sectorName: p.sector_name,
       subCategory: p.sub_category,
-      specs: p.specs ? JSON.parse(p.specs) : []
+      specs: typeof p.specs === 'string' ? JSON.parse(p.specs) : (p.specs || [])
     }));
 
     res.json({ success: true, count: formattedProducts.length, products: formattedProducts });
@@ -76,8 +128,20 @@ router.get('/products', (req, res) => {
 router.get('/products/:id', (req, res) => {
   const { id } = req.params;
   db.get('SELECT * FROM products WHERE id = ?', [id], (err, row) => {
-    if (err) return res.status(500).json({ error: err.message });
-    if (!row) return res.status(404).json({ error: 'Product not found' });
+    if (err || !row) {
+      const item = (SEED_PRODUCTS || []).find(p => p.id === id);
+      if (!item) return res.status(404).json({ error: 'Product not found' });
+      const product = {
+        ...item,
+        isFeatured: Boolean(item.is_featured),
+        originalPrice: item.original_price,
+        reviewsCount: item.reviews_count,
+        sectorName: item.sector_name,
+        subCategory: item.sub_category,
+        specs: typeof item.specs === 'string' ? JSON.parse(item.specs) : (item.specs || [])
+      };
+      return res.json({ success: true, product });
+    }
 
     const product = {
       ...row,
@@ -86,7 +150,7 @@ router.get('/products/:id', (req, res) => {
       reviewsCount: row.reviews_count,
       sectorName: row.sector_name,
       subCategory: row.sub_category,
-      specs: row.specs ? JSON.parse(row.specs) : []
+      specs: typeof row.specs === 'string' ? JSON.parse(row.specs) : (row.specs || [])
     };
 
     res.json({ success: true, product });

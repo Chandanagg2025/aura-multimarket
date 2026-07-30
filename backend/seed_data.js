@@ -625,6 +625,7 @@ const SEED_COUPONS = [
 ];
 
 module.exports = function seedData(db) {
+  if (!db) return;
   db.serialize(() => {
     console.log("Auto-seeding SQLite database with Shree Pratham multi-market products in INR...");
 
@@ -651,3 +652,6 @@ module.exports = function seedData(db) {
     console.log("Database successfully seeded with Water, Camera, Clothing, and Gift products in INR!");
   });
 };
+
+module.exports.SEED_PRODUCTS = SEED_PRODUCTS;
+module.exports.SEED_COUPONS = SEED_COUPONS;

@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { fetchProducts, validateCoupon, createOrderApi, fetchOrderByRef } from '../api/client';
+import { STATIC_PRODUCTS } from '../data/products';
 
 const StoreContext = createContext();
 
@@ -24,7 +25,32 @@ export function StoreProvider({ children }) {
   const [activeReceipt, setActiveReceipt] = useState(null);
   const [toasts, setToasts] = useState([]);
 
-  // Fetch products from backend Express API when inside a sector
+  const filterStaticProducts = (sector, category, search, sort) => {
+    let list = STATIC_PRODUCTS.filter(p => p.sector === sector);
+    if (category && category !== 'all') {
+      list = list.filter(p => p.subCategory === category);
+    }
+    if (search) {
+      const q = search.toLowerCase();
+      list = list.filter(p =>
+        p.name.toLowerCase().includes(q) ||
+        p.description.toLowerCase().includes(q) ||
+        p.sectorName.toLowerCase().includes(q)
+      );
+    }
+    if (sort === 'price-low') {
+      list.sort((a, b) => a.price - b.price);
+    } else if (sort === 'price-high') {
+      list.sort((a, b) => b.price - a.price);
+    } else if (sort === 'rating') {
+      list.sort((a, b) => b.rating - a.rating);
+    } else if (sort === 'name') {
+      list.sort((a, b) => a.name.localeCompare(b.name));
+    }
+    return list;
+  };
+
+  // Fetch products from backend Express API when inside a sector, with resilient fallback
   const loadProducts = async () => {
     if (!activeSector) {
       setProducts([]);
@@ -38,10 +64,16 @@ export function StoreProvider({ children }) {
         search: searchQuery,
         sort: sortBy
       });
-      setProducts(data.products || []);
+      if (data && data.products && data.products.length > 0) {
+        setProducts(data.products);
+      } else {
+        const fallback = filterStaticProducts(activeSector, activeSubCategory, searchQuery, sortBy);
+        setProducts(fallback);
+      }
     } catch (err) {
-      console.error('Failed to load products from API:', err);
-      showToast('Error loading products from server', 'danger');
+      console.warn('Backend API unavailable, using fallback products dataset:', err);
+      const fallback = filterStaticProducts(activeSector, activeSubCategory, searchQuery, sortBy);
+      setProducts(fallback);
     } finally {
       setLoading(false);
     }
