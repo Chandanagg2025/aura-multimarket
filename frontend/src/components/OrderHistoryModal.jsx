@@ -17,10 +17,12 @@ export default function OrderHistoryModal() {
         </div>
 
         {orders.length === 0 ? (
-          <div style={{ textAlign: 'center', padding: '40px' }}>
-            <i className="fa-solid fa-box-open" style={{ fontSize: '3rem', color: 'var(--text-muted)', marginBottom: '12px' }}></i>
-            <h4>No past orders placed yet</h4>
-            <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Completed purchases saved in SQLite will show here!</p>
+          <div style={{ textAlign: 'center', padding: '36px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <div style={{ width: '130px', height: '130px', borderRadius: 'var(--radius-lg)', overflow: 'hidden', border: '1px solid var(--border-color)', marginBottom: '16px', boxShadow: 'var(--shadow-lg)' }}>
+              <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=400&q=80" alt="Order Logistics" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
+            <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', color: '#FFF', marginBottom: '6px' }}>No Orders Found</h4>
+            <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', maxWidth: '320px', lineHeight: 1.5 }}>You haven't placed any purchases yet. Orders placed using our secure checkout gateway will be tracked here!</p>
           </div>
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>

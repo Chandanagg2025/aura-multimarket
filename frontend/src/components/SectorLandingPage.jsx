@@ -343,6 +343,51 @@ export default function SectorLandingPage() {
         </div>
       </section>
 
+      {/* SECTION: BRAND HIGHLIGHTS BANNER BAR */}
+      <section style={{ margin: '60px 0 20px', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-lg)', padding: '30px 24px', backdropFilter: 'blur(16px)', boxShadow: 'var(--shadow-lg)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '24px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <div style={{ width: '54px', height: '54px', borderRadius: 'var(--radius-md)', background: 'rgba(99, 102, 241, 0.12)', border: '1px solid rgba(99, 102, 241, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-primary)', fontSize: '1.4rem', flexShrink: 0 }}>
+              <i className="fa-solid fa-truck-fast"></i>
+            </div>
+            <div>
+              <h4 style={{ color: '#FFF', fontSize: '0.98rem', fontWeight: 800 }}>Express 24-Hr Logistics</h4>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.82rem' }}>Priority dispatch across all sectors</p>
+            </div>
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <div style={{ width: '54px', height: '54px', borderRadius: 'var(--radius-md)', background: 'rgba(16, 185, 129, 0.12)', border: '1px solid rgba(16, 185, 129, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#10B981', fontSize: '1.4rem', flexShrink: 0 }}>
+              <i className="fa-solid fa-shield-halved"></i>
+            </div>
+            <div>
+              <h4 style={{ color: '#FFF', fontSize: '0.98rem', fontWeight: 800 }}>Authentic Guarantee</h4>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.82rem' }}>100% verified serials & warranty</p>
+            </div>
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <div style={{ width: '54px', height: '54px', borderRadius: 'var(--radius-md)', background: 'rgba(245, 158, 11, 0.12)', border: '1px solid rgba(245, 158, 11, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#F59E0B', fontSize: '1.4rem', flexShrink: 0 }}>
+              <i className="fa-solid fa-headset"></i>
+            </div>
+            <div>
+              <h4 style={{ color: '#FFF', fontSize: '0.98rem', fontWeight: 800 }}>Concierge Support</h4>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.82rem' }}>Dedicated 24/7 sector assistance</p>
+            </div>
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <div style={{ width: '54px', height: '54px', borderRadius: 'var(--radius-md)', background: 'rgba(14, 165, 233, 0.12)', border: '1px solid rgba(14, 165, 233, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#0EA5E9', fontSize: '1.4rem', flexShrink: 0 }}>
+              <i className="fa-solid fa-lock"></i>
+            </div>
+            <div>
+              <h4 style={{ color: '#FFF', fontSize: '0.98rem', fontWeight: 800 }}>Encrypted Gateway</h4>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.82rem' }}>Secure UPI, Card & Bank checkout</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 3: ABOUT US */}
       <section className="about-section">
         <div className="about-grid">

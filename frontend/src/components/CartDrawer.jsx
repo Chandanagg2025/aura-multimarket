@@ -55,10 +55,12 @@ export default function CartDrawer() {
           </div>
 
           {cart.length === 0 ? (
-            <div style={{ textAlign: 'center', padding: '40px 20px', margin: 'auto 0' }}>
-              <i className="fa-solid fa-cart-flatbed" style={{ fontSize: '3rem', color: 'var(--text-muted)', marginBottom: '12px' }}></i>
-              <h4>Your cart is empty</h4>
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Explore our 4 sectors to add items!</p>
+            <div style={{ textAlign: 'center', padding: '30px 20px', margin: 'auto 0', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <div style={{ width: '120px', height: '120px', borderRadius: '50%', overflow: 'hidden', border: '2px solid var(--border-color)', marginBottom: '16px', boxShadow: 'var(--shadow-lg)' }}>
+                <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?auto=format&fit=crop&w=400&q=80" alt="Empty Shopping Bag" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              </div>
+              <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.2rem', color: '#FFF', marginBottom: '6px' }}>Your Cart is Empty</h4>
+              <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', maxWidth: '240px', lineHeight: 1.5 }}>Explore our 4 specialized sectors to discover high-fidelity products!</p>
             </div>
           ) : (
             cart.map(item => (
