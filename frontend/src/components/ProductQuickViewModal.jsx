@@ -13,7 +13,7 @@ export default function ProductQuickViewModal() {
           <i className="fa-solid fa-xmark"></i>
         </button>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px' }}>
+        <div className="quick-view-grid">
           <div style={{ background: 'var(--bg-card)', borderRadius: 'var(--radius-md)', height: '340px', overflow: 'hidden' }}>
             <img src={selectedProduct.image} alt={selectedProduct.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
