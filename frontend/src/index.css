@@ -1109,7 +1109,7 @@ html, body {
   max-width: 1000px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 12px 24px;
   background: rgba(15, 23, 42, 0.6);
   backdrop-filter: blur(16px);
@@ -1144,27 +1144,6 @@ html, body {
   font-size: 0.95rem;
   letter-spacing: 0.08em;
   color: #F8FAFC;
-}
-
-.bypass-btn {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #94A3B8;
-  padding: 6px 16px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: var(--transition-fast);
-}
-
-.bypass-btn:hover {
-  background: rgba(99, 102, 241, 0.2);
-  color: #FFF;
-  border-color: #6366F1;
 }
 
 .maintenance-container {

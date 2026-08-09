@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default function MaintenancePage({ onBypass }) {
+export default function MaintenancePage() {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
   const [timeLeft, setTimeLeft] = useState({
@@ -50,16 +50,6 @@ export default function MaintenancePage({ onBypass }) {
           </div>
           <span className="brand-title">SHREE PRATHAM MULTI-MARKET</span>
         </div>
-
-        {onBypass && (
-          <button 
-            className="bypass-btn" 
-            onClick={onBypass}
-            title="Admin bypass maintenance screen to preview store"
-          >
-            <i className="fa-solid fa-key"></i> Admin Preview
-          </button>
-        )}
       </div>
 
       <div className="maintenance-container">

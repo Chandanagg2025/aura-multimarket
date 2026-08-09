@@ -25,21 +25,11 @@ export default function App() {
   }, []);
 
   if (isMaintenanceMode) {
-    return <MaintenancePage onBypass={() => setIsMaintenanceMode(false)} />;
+    return <MaintenancePage />;
   }
 
   return (
     <div className="app-container">
-      {/* Admin Preview Floating Bar */}
-      <div style={{ background: '#F59E0B', color: '#000', padding: '6px 16px', fontSize: '0.8rem', fontWeight: '700', textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px' }}>
-        <span>⚠️ MAINTENANCE MODE IS LIVE (You are currently in Admin Store Preview Mode)</span>
-        <button 
-          onClick={() => setIsMaintenanceMode(true)}
-          style={{ background: '#000', color: '#FFF', border: 'none', padding: '3px 10px', borderRadius: '4px', cursor: 'pointer', fontSize: '0.75rem', fontWeight: '600' }}
-        >
-          View Maintenance Screen
-        </button>
-      </div>
 
       <div className="announcement-bar">
         <span>🎉 <strong>SPECIAL LAUNCH OFFER:</strong> Use code <code className="code-badge">SAVE10</code> for 10% OFF across all 4 sectors! Free express shipping over ₹1,000.</span>
