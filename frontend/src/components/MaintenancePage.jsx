@@ -4,6 +4,7 @@ export default function MaintenancePage() {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
   const [timeLeft, setTimeLeft] = useState({
+    days:30,
     hours: 14,
     minutes: 32,
     seconds: 45
