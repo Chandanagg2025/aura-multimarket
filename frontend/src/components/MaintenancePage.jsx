@@ -48,7 +48,7 @@ export default function MaintenancePage() {
           <div className="logo-icon-small">
             <i className="fa-solid fa-gem"></i>
           </div>
-          <span className="brand-title">SHREE PRATHAM MULTI-MARKET</span>
+          <span className="brand-title">SHREE PRATHAM</span>
         </div>
       </div>
 
@@ -178,11 +178,11 @@ export default function MaintenancePage() {
             <a href="mailto:support@shreepratham.com" className="contact-item">
               <i className="fa-solid fa-envelope"></i> support@shreepratham.com
             </a>
-            <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="contact-item">
+            <a href="https://wa.me/918851912882" target="_blank" rel="noreferrer" className="contact-item">
               <i className="fa-brands fa-whatsapp"></i> Live Support Chat
             </a>
             <a href="tel:+919876543210" className="contact-item">
-              <i className="fa-solid fa-phone"></i> +91 98765 43210
+              <i className="fa-solid fa-phone"></i> +91 8851912882
             </a>
           </div>
           <div className="copyright-line">
